@@ -1,12 +1,14 @@
 from django.shortcuts import render, HttpResponse
 from .models import Categoria, Produto
-
+from django.urls import reverse
+from django.shortcuts import redirect
 # Create your views here.
 
 def estoque(request):
     if request.method == "GET":
         categorias = Categoria.objects.all()
-        return render(request, 'estoque/estoque.html', {'categorias': categorias})
+        produtos = Produto.objects.all()
+        return render(request, 'estoque/estoque.html', {'categorias': categorias, 'produtos':produtos})
     elif request.method == "POST":
         nome = request.POST.get('nome')
         categoria = request.POST.get('categoria')
@@ -19,4 +21,4 @@ def estoque(request):
         
         produto.save()
 
-        return HttpResponse('rolou hein ')
+        return redirect(reverse('estoque'))
