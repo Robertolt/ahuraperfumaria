@@ -1,0 +1,29 @@
+<form action="{% url 'estoque' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+    <label>Nome: </label>
+    <input type="text" name="nome">
+    <br>
+    <br>
+    <label>Selecione a categoria do produto: </label>
+    <select name="categoria">
+        {% for categoria in categorias %}
+            <option value="{{categoria.id}}">{{categoria.titulo}}</option>
+        {% endfor %}
+    <br>
+    <br>
+    <label>Quantidade: </label>
+    <input type="number" name="quantidade">
+    <br>
+    <br>
+    <label>Custo de Produção: </label>
+    <input type="number" name="custo_producao">
+    <br>
+    <br>
+    <label>Valor de Venda: </label>
+    <input type="number" name="valor_venda">
+    <br>
+    <br>
+
+    <input type="submit" value="Enviar">
+
+</form>

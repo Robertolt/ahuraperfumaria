@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'body' %}
+    <div class="container">
+        <forms action="" method="POST"> {% csrf_token %}
+            <br>
+            <label> Nome </label>
+            <input type="" placeholder="Digite o nome do produto" name="nome" class="form-control"
+            <br>
+            <br>
+            <label> Senha </label>
+            <input type="" placeholder="Digite o nome do produto" name="senha" class="form-control" 
+            <br>
+            <br>
+            <input type="submit" class="btn btn-success"
+            
+        </forms>
+    </div>
+
+{% endblock %}
